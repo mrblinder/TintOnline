@@ -1,0 +1,59 @@
+<div data-ng-controller="DatapointsController">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top">TintMx</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+
+					<li class="page-scroll" data-ng-show="!authentication.user">
+                        <a href="/login">Login</a>
+                    </li>
+                    <li class="page-scroll" data-ng-show="!authentication.user">
+                        <a href="/register">Register</a>
+                    </li>
+
+                    <li class="page-scroll" data-ng-show="authentication.user">
+                        <a href="/#!/datapoints/create">CREATE</a>
+                    </li>
+                    <li class="page-scroll" data-ng-show="authentication.user">
+                        <a href="/logout">Hello <span data-ng-bind="authentication.user.name" data-ng-show="authentication.user"></span>, Logout?</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <section data-ng-init="find()">
+		<div class="container">
+			<h1>Datapoints</h1>
+			<ul>
+				<li data-ng-repeat="datapoint in datapoints" ng-if="showcompleted && datapoint.completed || !datapoint.completed">
+					<a data-ng-href="#!/datapoints/{{datapoint._id}}" data-ng-bind="datapoint.val" ng-class="datapoint.completed?'completed':''"></a>
+					(<small data-ng-bind="datapoint.created | date:'short'"></small>)
+					<br>
+
+					<small data-ng-bind="datapoint.comment" class="comment"></small>
+				</li>
+			</ul>
+			<div data-ng-hide="!datapoints || datapoints.length">
+				No datapoints yet, why don't you <a href="/#!/datapoints/create">create one</a>?
+			</div>
+		</div>
+	</section>
+</div>
