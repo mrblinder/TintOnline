@@ -1,0 +1,4 @@
+mongoDB: QGYL7flvicl4
+
+public DNS: ec2-52-207-239-164.compute-1.amazonaws.com
+
