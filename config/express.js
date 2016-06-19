@@ -29,7 +29,10 @@ module.exports = function() {
 
 	require('../app/routes/index.server.routes.js')(app);
 	require('../app/routes/users.server.routes.js')(app);
+<<<<<<< HEAD
 	require('../app/routes/todos.server.routes.js')(app);
+=======
+>>>>>>> b5808900d1c782291c54f03bd7f4ab32f78c4f85
 	require('../app/routes/datapoints.server.routes.js')(app);
 
 	app.use(express.static('./public'));

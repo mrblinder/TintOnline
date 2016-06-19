@@ -14,7 +14,10 @@ var UserSchema = new Schema({
 	provider: String,
 	providerId: String,
 	providerData: {},
+<<<<<<< HEAD
 	todos: {},
+=======
+>>>>>>> b5808900d1c782291c54f03bd7f4ab32f78c4f85
 	datapoints: {
 		// type: Schema.ObjectId,
 		// ref: 'Datapoint'
